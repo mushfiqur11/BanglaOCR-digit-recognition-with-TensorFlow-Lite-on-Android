@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
+//100% nigga
+
 /**
  * Instrumented test, which will execute on an Android device.
  *
