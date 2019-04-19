@@ -12,6 +12,9 @@ public class Result {
         mTimeCost = timeCost;
     }
 
+    // first test commit
+    //kire mama
+
     public int getNumber() {
         return mNumber;
     }
