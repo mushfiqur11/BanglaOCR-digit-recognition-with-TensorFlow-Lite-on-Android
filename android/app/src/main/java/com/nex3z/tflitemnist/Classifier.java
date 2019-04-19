@@ -26,6 +26,7 @@ public class Classifier {
     public static final int IMG_WIDTH = 40;
     private static final int NUM_CHANNEL = 1;
     private static final int NUM_CLASSES = 10;
+    //hellio
 
     private final Interpreter.Options options = new Interpreter.Options();
     private final Interpreter mInterpreter;
