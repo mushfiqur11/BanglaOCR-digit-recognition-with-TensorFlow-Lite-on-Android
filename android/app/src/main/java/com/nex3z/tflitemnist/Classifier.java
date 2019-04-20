@@ -69,13 +69,13 @@ public class Classifier {
 
         bitmap.getPixels(mImagePixels, 0, bitmap.getWidth(), 0, 0,
                 bitmap.getWidth(), bitmap.getHeight());
-        total=0;
+        //total=0;
         int pixel = 0;
         for (int i = 0; i < IMG_WIDTH; ++i) {
             for (int j = 0; j < IMG_HEIGHT; ++j) {
                 int value = mImagePixels[pixel++];
                 mImageData.putFloat(convertPixel(value));
-                total = total + convertPixel(value);
+                //total = total + convertPixel(value);
             }
         }
 

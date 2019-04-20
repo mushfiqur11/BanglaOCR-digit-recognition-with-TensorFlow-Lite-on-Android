@@ -118,9 +118,9 @@ public class MainActivity extends AppCompatActivity {
     private void renderResult(Result result) {
         mTvPrediction.setText(String.valueOf(result.getNumber()));
         mTvProbability.setText(String.valueOf(result.getProbability()));
-//        mTvTimeCost.setText(String.format(getString(R.string.timecost_value),
-//                result.getTimeCost()));
-        mTvTimeCost.setText(String.format(String.valueOf(Classifier.total)));
+        mTvTimeCost.setText(String.format(getString(R.string.timecost_value),
+                result.getTimeCost()));
+//        mTvTimeCost.setText(String.format(String.valueOf(Classifier.total)));
     }
 
 }
