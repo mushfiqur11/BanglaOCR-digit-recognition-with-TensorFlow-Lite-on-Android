@@ -26,7 +26,7 @@ public class Classifier {
     public static final int IMG_WIDTH = 40;
     private static final int NUM_CHANNEL = 1;
     private static final int NUM_CLASSES = 10;
-
+    public static float total =0;
 
     private final Interpreter.Options options = new Interpreter.Options();
     private final Interpreter mInterpreter;
@@ -69,19 +69,30 @@ public class Classifier {
 
         bitmap.getPixels(mImagePixels, 0, bitmap.getWidth(), 0, 0,
                 bitmap.getWidth(), bitmap.getHeight());
-
+        total=0;
         int pixel = 0;
         for (int i = 0; i < IMG_WIDTH; ++i) {
             for (int j = 0; j < IMG_HEIGHT; ++j) {
                 int value = mImagePixels[pixel++];
                 mImageData.putFloat(convertPixel(value));
+                total = total + convertPixel(value);
             }
         }
+
     }
 
+//    private static float convertPixel(int color) {
+//        return ((((color >> 16) & 0xFF) * 0.299f
+//                + ((color >> 8) & 0xFF) * 0.587f
+//                + (color & 0xFF) * 0.114f)) / 255.0f;
+//    }
     private static float convertPixel(int color) {
-        return ((((color >> 16) & 0xFF) * 0.299f
+        float color2 = ((((color >> 16) & 0xFF) * 0.299f
                 + ((color >> 8) & 0xFF) * 0.587f
                 + (color & 0xFF) * 0.114f)) / 255.0f;
+        if(color2 < 0.3f)
+            return 0.0f;
+        else
+            return 1.0f;
     }
 }

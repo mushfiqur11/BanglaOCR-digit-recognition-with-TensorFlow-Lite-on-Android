@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tv_timecost) TextView mTvTimeCost;
 
     Button captureButton;
-
     private Classifier mClassifier;
     Bitmap captured_image;
 
@@ -119,8 +118,9 @@ public class MainActivity extends AppCompatActivity {
     private void renderResult(Result result) {
         mTvPrediction.setText(String.valueOf(result.getNumber()));
         mTvProbability.setText(String.valueOf(result.getProbability()));
-        mTvTimeCost.setText(String.format(getString(R.string.timecost_value),
-                result.getTimeCost()));
+//        mTvTimeCost.setText(String.format(getString(R.string.timecost_value),
+//                result.getTimeCost()));
+        mTvTimeCost.setText(String.format(String.valueOf(Classifier.total)));
     }
 
 }
