@@ -1,10 +1,15 @@
 package com.nex3z.tflitemnist;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +32,12 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tv_probability) TextView mTvProbability;
     @BindView(R.id.tv_timecost) TextView mTvTimeCost;
 
+    Button captureButton;
+
     private Classifier mClassifier;
+    Bitmap captured_image;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,25 +45,50 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         init();
+
+        captureButton = findViewById(R.id.captureButton);
+
+        captureButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent (MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(i,0);
+            }
+        });
+
+
     }
+
+
 
     @OnClick(R.id.btn_detect)
     void onDetectClick() {
         if (mClassifier == null) {
             Log.e(LOG_TAG, "onDetectClick(): Classifier is not initialized");
-            return;
-        } else if (mFpvPaint.isEmpty()) {
-            Toast.makeText(this, R.string.please_write_a_digit, Toast.LENGTH_SHORT).show();
-            return;
-        }
+            return;}
+//        } else if (mFpvPaint.isEmpty()) {
+//            Toast.makeText(this, R.string.please_write_a_digit, Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+
+
 
         Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.eight);
         Bitmap scaled = Bitmap.createScaledBitmap(b, 40, 40, true);
+        Bitmap captured_image_scaled = Bitmap.createScaledBitmap(captured_image, 40, 40, true);
 
-//        Bitmap image = mFpvPaint.exportToBitmap(
-//                Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
-        Result result = mClassifier.classify(scaled);
+        Bitmap image = mFpvPaint.exportToBitmap(
+                Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
+        Result result = mClassifier.classify(captured_image_scaled);
         renderResult(result);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        captured_image = (Bitmap) data.getExtras().get("data");
+        onDetectClick();
+
     }
 
     @OnClick(R.id.btn_clear)
