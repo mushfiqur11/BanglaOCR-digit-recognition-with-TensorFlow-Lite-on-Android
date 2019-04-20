@@ -61,33 +61,83 @@ public class Classifier {
         return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength);
     }
 
-    private void convertBitmapToByteBuffer(Bitmap bitmap) {
-        if (mImageData == null) {
-            return;
-        }
-        mImageData.rewind();
-
-        bitmap.getPixels(mImagePixels, 0, bitmap.getWidth(), 0, 0,
-                bitmap.getWidth(), bitmap.getHeight());
-        //total=0;
-        int pixel = 0;
-        for (int i = 0; i < IMG_WIDTH; ++i) {
-            for (int j = 0; j < IMG_HEIGHT; ++j) {
-                int value = mImagePixels[pixel++];
-                mImageData.putFloat(convertPixel(value));
-                //total = total + convertPixel(value);
-            }
-        }
-
-    }
+//    private void convertBitmapToByteBuffer(Bitmap bitmap) {
+//        if (mImageData == null) {
+//            return;
+//        }
+//        mImageData.rewind();
+//
+//        bitmap.getPixels(mImagePixels, 0, bitmap.getWidth(), 0, 0,
+//                bitmap.getWidth(), bitmap.getHeight());
+//        //total=0;
+//        int pixel = 0;
+//        for (int i = 0; i < IMG_WIDTH; ++i) {
+//            for (int j = 0; j < IMG_HEIGHT; ++j) {
+//                int value = mImagePixels[pixel++];
+//                mImageData.putFloat(convertPixel(value));
+//                //total = total + convertPixel(value);
+//            }
+//        }
+//
+//    }
 
 //    private static float convertPixel(int color) {
 //        return ((((color >> 16) & 0xFF) * 0.299f
 //                + ((color >> 8) & 0xFF) * 0.587f
 //                + (color & 0xFF) * 0.114f)) / 255.0f;
 //    }
-    private static float convertPixel(int color) {
+    private void convertBitmapToByteBuffer(Bitmap bitmap) {
+        if (mImageData == null) {
+            return;
+        }
+        mImageData.rewind();
+        total=0;
+        bitmap.getPixels(mImagePixels, 0, bitmap.getWidth(), 0, 0,
+                bitmap.getWidth(), bitmap.getHeight());
+        int pixel = 0;
+        for (int i = 0; i < IMG_WIDTH; ++i) {
+            for (int j = 0; j < IMG_HEIGHT; ++j) {
+                int value = mImagePixels[pixel++];
+                //mImageData.putFloat(convertPixelWhite(value));
+                total = total + convertPixelWhite(value);
+            }
+        }
+        bitmap.getPixels(mImagePixels, 0, bitmap.getWidth(), 0, 0,
+                bitmap.getWidth(), bitmap.getHeight());
+        pixel=0;
+        if(total>800) {
+            for (int i = 0; i < IMG_WIDTH; ++i) {
+                for (int j = 0; j < IMG_HEIGHT; ++j) {
+                    int value = mImagePixels[pixel++];
+                    mImageData.putFloat(convertPixelWhite(value));
+
+                }
+            }
+        }
+        else{
+            for (int i = 0; i < IMG_WIDTH; ++i) {
+                for (int j = 0; j < IMG_HEIGHT; ++j) {
+                    int value = mImagePixels[pixel++];
+                    mImageData.putFloat(convertPixelBlack(value));
+
+                }
+            }
+        }
+    }
+
+
+
+    private static float convertPixelWhite(int color) {
         float color2 = ((((color >> 16) & 0xFF) * 0.299f
+                + ((color >> 8) & 0xFF) * 0.587f
+                + (color & 0xFF) * 0.114f)) / 255.0f;
+        if(color2 < 0.3f)
+            return 0.0f;
+        else
+            return 1.0f;
+    }
+    private static float convertPixelBlack(int color) {
+        float color2 = (255.0f - (((color >> 16) & 0xFF) * 0.299f
                 + ((color >> 8) & 0xFF) * 0.587f
                 + (color & 0xFF) * 0.114f)) / 255.0f;
         if(color2 < 0.3f)
