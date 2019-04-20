@@ -1,6 +1,7 @@
 package com.nex3z.tflitemnist;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nex3z.fingerpaintview.FingerPaintView;
+
+import org.tensorflow.lite.Interpreter;
 
 import java.io.IOException;
 
@@ -44,9 +47,12 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        Bitmap image = mFpvPaint.exportToBitmap(
-                Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
-        Result result = mClassifier.classify(image);
+        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.eight);
+        Bitmap scaled = Bitmap.createScaledBitmap(b, 40, 40, true);
+
+//        Bitmap image = mFpvPaint.exportToBitmap(
+//                Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
+        Result result = mClassifier.classify(scaled);
         renderResult(result);
     }
 
@@ -59,12 +65,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+
+
         try {
+
+            //mClassifier = new Interpreter(loadModelFile(MainActivity.this,modelFile));
             mClassifier = new Classifier(this);
         } catch (IOException e) {
             Toast.makeText(this, R.string.failed_to_create_classifier, Toast.LENGTH_LONG).show();
             Log.e(LOG_TAG, "init(): Failed to create Classifier", e);
         }
+
+
+            //mClassifier = new Classifier(this);
+
     }
 
     private void renderResult(Result result) {
