@@ -12,6 +12,7 @@ import com.nex3z.fingerpaintview.FingerPaintView;
 import java.io.IOException;
 
 import butterknife.BindView;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
