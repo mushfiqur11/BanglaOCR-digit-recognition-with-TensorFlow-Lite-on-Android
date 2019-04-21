@@ -24,6 +24,7 @@ import com.nex3z.fingerpaintview.FingerPaintView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,7 +53,13 @@ public class ShekhaoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shekhao);
         ButterKnife.bind(this);
 
+        Random rand = new Random();
+        int randomNumber = rand.nextInt(10);
+        String randomNumberString = Integer.toString(randomNumber);
+
         progressDialog = new ProgressDialog(this);
+
+        tv_prediction.setText(randomNumberString);
 
         btn_clear = findViewById(R.id.btn_clear);
         btn_submit = findViewById(R.id.btn_detect);
