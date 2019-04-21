@@ -19,7 +19,7 @@ import java.util.Arrays;
 public class Classifier {
     private static final String LOG_TAG = Classifier.class.getSimpleName();
 
-    private static final String MODEL_NAME = "mnistbangla.tflite";
+    private static final String MODEL_NAME = "mnistbangla2.tflite";
 
     private static final int BATCH_SIZE = 1;
     public static final int IMG_HEIGHT = 40;
