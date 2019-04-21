@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1039008138859",
+    "firebase_url": "https://bangla-ocr-602b2.firebaseio.com",
+    "project_id": "bangla-ocr-602b2",
+    "storage_bucket": "bangla-ocr-602b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039008138859:android:7348d424ba1afc1e",
+        "android_client_info": {
+          "package_name": "com.nex3z.tflitemnist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039008138859-3g740slh0bfjk07hvtpuviu318v30cpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgJPNntDIgJYJ2Bi_KfEFbXxzW7bImLAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039008138859-3g740slh0bfjk07hvtpuviu318v30cpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
