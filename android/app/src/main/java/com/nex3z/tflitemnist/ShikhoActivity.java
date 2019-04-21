@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ShikhoActivity extends AppCompatActivity {
+
     private static final String LOG_TAG = ShikhoActivity.class.getSimpleName();
 
     @BindView(R.id.fpv_paint) FingerPaintView mFpvPaint;
@@ -74,8 +75,8 @@ public class ShikhoActivity extends AppCompatActivity {
 
         Bitmap captured_image_scaled = Bitmap.createScaledBitmap(captured_image, 40, 40, true);
 
-//        Bitmap image = mFpvPaint.exportToBitmap(
-//                Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
+        Bitmap image = mFpvPaint.exportToBitmap(
+                Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
         Result result = mClassifier.classify(captured_image_scaled);
         renderResult(result);
     }
