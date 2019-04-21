@@ -25,5 +25,13 @@ public class HomePage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        shekhaoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomePage.this, ShekhaoActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }
