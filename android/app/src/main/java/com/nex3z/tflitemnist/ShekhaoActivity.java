@@ -206,6 +206,8 @@ public class ShekhaoActivity extends AppCompatActivity {
                 //Uri download_uri = taskSnapshot.getDownloadUrl();
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(),"Thank you!",Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
             }
         });
 
