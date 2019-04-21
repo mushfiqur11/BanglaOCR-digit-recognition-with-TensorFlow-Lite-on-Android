@@ -2,7 +2,6 @@ package com.nex3z.tflitemnist;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -15,8 +14,6 @@ import android.widget.Toast;
 
 import com.nex3z.fingerpaintview.FingerPaintView;
 
-import org.tensorflow.lite.Interpreter;
-
 import java.io.IOException;
 
 import butterknife.BindView;
@@ -24,8 +21,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+public class ShikhoActivity extends AppCompatActivity {
+    private static final String LOG_TAG = ShikhoActivity.class.getSimpleName();
 
     @BindView(R.id.fpv_paint) FingerPaintView mFpvPaint;
     @BindView(R.id.tv_prediction) TextView mTvPrediction;
@@ -72,12 +69,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.eight);
-        Bitmap scaled = Bitmap.createScaledBitmap(b, 40, 40, true);
+//        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.eight);
+//        Bitmap scaled = Bitmap.createScaledBitmap(b, 40, 40, true);
+
         Bitmap captured_image_scaled = Bitmap.createScaledBitmap(captured_image, 40, 40, true);
 
-        Bitmap image = mFpvPaint.exportToBitmap(
-                Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
+//        Bitmap image = mFpvPaint.exportToBitmap(
+//                Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
         Result result = mClassifier.classify(captured_image_scaled);
         renderResult(result);
     }
@@ -103,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
 
-            //mClassifier = new Interpreter(loadModelFile(MainActivity.this,modelFile));
+            //mClassifier = new Interpreter(loadModelFile(ShikhoActivity.this,modelFile));
             mClassifier = new Classifier(this);
         } catch (IOException e) {
             Toast.makeText(this, R.string.failed_to_create_classifier, Toast.LENGTH_LONG).show();

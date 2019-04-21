@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TfLite MNIST</string>
+    <string name="app_name">Bangla OCR</string>
     <string name="prediction">Prediction</string>
     <string name="probability">Probability</string>
     <string name="timecost">Timecost</string>
@@ -7,6 +7,8 @@
     <string name="empty">--</string>
     <string name="detect">Detect</string>
     <string name="clear">Clear</string>
+    <string name="shikho">শিখ</string>
+    <string name="shekhao">শেখাও</string>
     <string name="please_write_a_digit">Please write a digit in the box above.</string>
     <string name="failed_to_create_classifier">Failed to create classifier.</string>
 </resources>
