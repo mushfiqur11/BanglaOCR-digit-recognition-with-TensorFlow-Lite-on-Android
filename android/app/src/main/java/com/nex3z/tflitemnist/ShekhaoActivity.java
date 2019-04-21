@@ -42,8 +42,12 @@ public class ShekhaoActivity extends AppCompatActivity {
     @BindView(R.id.tv_prediction)
     TextView tv_prediction;
 
+    int randomNumber;
+
     Button btn_submit,btn_clear;
     ImageView testImageView;
+
+    String folderName;
 
     //Bitmap captured_image;
 
@@ -54,7 +58,7 @@ public class ShekhaoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Random rand = new Random();
-        int randomNumber = rand.nextInt(10);
+        randomNumber = rand.nextInt(10);
         String randomNumberString = Integer.toString(randomNumber);
 
         progressDialog = new ProgressDialog(this);
@@ -140,11 +144,62 @@ public class ShekhaoActivity extends AppCompatActivity {
         Bitmap image = mFpvPaint.exportToBitmap(
                 Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
 
-        Uri store_uri =getImageUri(this,image);
+        Uri store_uri = getImageUri(this,image);
 
         String randomString = getAlphaNumericString(10);
 
-        StorageReference storageReference = mStorage.child("images/"+randomString+".jpg");
+        if(randomNumber==0)
+        {
+            folderName="zero";
+        }
+
+        else if(randomNumber==1)
+        {
+            folderName="one";
+        }
+
+        else if(randomNumber==2)
+        {
+            folderName="two";
+        }
+
+        else if(randomNumber==3)
+        {
+            folderName="three";
+        }
+
+        else if(randomNumber==4)
+        {
+            folderName="four";
+        }
+
+        else if(randomNumber==5)
+        {
+            folderName="five";
+        }
+
+        else if(randomNumber==6)
+        {
+            folderName="six";
+        }
+
+        else if(randomNumber==7)
+        {
+            folderName="seven";
+        }
+
+        else if(randomNumber==8)
+        {
+            folderName="eight";
+        }
+
+        else if(randomNumber==9)
+        {
+            folderName="nine";
+        }
+        
+
+        StorageReference storageReference = mStorage.child("images/"+folderName+"/"+randomString+".jpg");
         storageReference.putFile(store_uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
