@@ -1,5 +1,6 @@
 package com.nex3z.tflitemnist;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -33,6 +34,7 @@ public class ShekhaoActivity extends AppCompatActivity {
     private static final String LOG_TAG = ShekhaoActivity.class.getSimpleName();
 
     private StorageReference mStorage;
+    ProgressDialog progressDialog;
 
     @BindView(R.id.fpv_paint)
     FingerPaintView mFpvPaint;
@@ -49,6 +51,8 @@ public class ShekhaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shekhao);
         ButterKnife.bind(this);
+
+        progressDialog = new ProgressDialog(this);
 
         btn_clear = findViewById(R.id.btn_clear);
         btn_submit = findViewById(R.id.btn_detect);
@@ -109,10 +113,15 @@ public class ShekhaoActivity extends AppCompatActivity {
     void onDetectClick() {
 
 
+
+
         if (mFpvPaint.isEmpty()) {
             Toast.makeText(this, R.string.please_write_a_digit, Toast.LENGTH_SHORT).show();
             return;
         }
+
+        progressDialog.setMessage("Uploading");
+        progressDialog.show();
 
 
 
@@ -133,6 +142,8 @@ public class ShekhaoActivity extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 //Uri download_uri = taskSnapshot.getDownloadUrl();
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(),"Thank you!",Toast.LENGTH_SHORT).show();
             }
         });
 
