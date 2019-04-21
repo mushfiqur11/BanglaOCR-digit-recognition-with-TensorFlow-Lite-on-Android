@@ -221,7 +221,7 @@ public class ShekhaoActivity extends AppCompatActivity {
     @OnClick(R.id.btn_clear)
     void onClearClick() {
         mFpvPaint.clear();
-        tv_prediction.setText(R.string.empty);
+        //tv_prediction.setText(R.string.empty);
 
     }
 
