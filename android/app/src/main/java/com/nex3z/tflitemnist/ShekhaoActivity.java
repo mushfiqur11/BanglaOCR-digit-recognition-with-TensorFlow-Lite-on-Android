@@ -78,7 +78,32 @@ public class ShekhaoActivity extends AppCompatActivity {
         return Uri.parse(path);
     }
 
-   
+    static String getAlphaNumericString(int n)
+    {
+
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "0123456789"
+                + "abcdefghijklmnopqrstuvxyz";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index
+                    = (int)(AlphaNumericString.length()
+                    * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString
+                    .charAt(index));
+        }
+
+        return sb.toString();
+    }
 
     @OnClick(R.id.btn_detect)
     void onDetectClick() {
@@ -101,7 +126,9 @@ public class ShekhaoActivity extends AppCompatActivity {
 
         Uri store_uri =getImageUri(this,image);
 
-        StorageReference storageReference = mStorage.child("images/test.jpg");
+        String randomString = getAlphaNumericString(10);
+
+        StorageReference storageReference = mStorage.child("images/"+randomString+".jpg");
         storageReference.putFile(store_uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
