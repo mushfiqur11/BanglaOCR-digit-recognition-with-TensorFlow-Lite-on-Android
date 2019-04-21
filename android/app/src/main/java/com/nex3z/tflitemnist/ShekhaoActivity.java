@@ -197,7 +197,7 @@ public class ShekhaoActivity extends AppCompatActivity {
         {
             folderName="nine";
         }
-        
+
 
         StorageReference storageReference = mStorage.child("images/"+folderName+"/"+randomString+".jpg");
         storageReference.putFile(store_uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

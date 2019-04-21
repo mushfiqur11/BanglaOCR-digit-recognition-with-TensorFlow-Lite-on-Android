@@ -25,10 +25,9 @@ public class ShikhoActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = ShikhoActivity.class.getSimpleName();
 
-    @BindView(R.id.fpv_paint) FingerPaintView mFpvPaint;
+
     @BindView(R.id.tv_prediction) TextView mTvPrediction;
-    @BindView(R.id.tv_probability) TextView mTvProbability;
-    @BindView(R.id.tv_timecost) TextView mTvTimeCost;
+
 
     Button captureButton;
     private Classifier mClassifier;
@@ -57,8 +56,7 @@ public class ShikhoActivity extends AppCompatActivity {
     }
 
 
-
-    @OnClick(R.id.btn_detect)
+    
     void onDetectClick() {
         if (mClassifier == null) {
             Log.e(LOG_TAG, "onDetectClick(): Classifier is not initialized");
@@ -75,8 +73,7 @@ public class ShikhoActivity extends AppCompatActivity {
 
         Bitmap captured_image_scaled = Bitmap.createScaledBitmap(captured_image, 40, 40, true);
 
-        Bitmap image = mFpvPaint.exportToBitmap(
-                Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
+
         Result result = mClassifier.classify(captured_image_scaled);
         renderResult(result);
     }
@@ -89,13 +86,7 @@ public class ShikhoActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.btn_clear)
-    void onClearClick() {
-        mFpvPaint.clear();
-        mTvPrediction.setText(R.string.empty);
-        mTvProbability.setText(R.string.empty);
-        mTvTimeCost.setText(R.string.empty);
-    }
+
 
     private void init() {
 
@@ -116,9 +107,7 @@ public class ShikhoActivity extends AppCompatActivity {
 
     private void renderResult(Result result) {
         mTvPrediction.setText(String.valueOf(result.getNumber()));
-        mTvProbability.setText(String.valueOf(result.getProbability()));
-        mTvTimeCost.setText(String.format(getString(R.string.timecost_value),
-                result.getTimeCost()));
+
 //        mTvTimeCost.setText(String.format(String.valueOf(Classifier.total)));
     }
 
