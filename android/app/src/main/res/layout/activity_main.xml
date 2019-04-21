@@ -23,6 +23,38 @@
             android:text="@string/empty"
             tools:text="1"/>
 
+        <TableRow>
+
+            <TextView
+                style="@style/ResultText"
+                android:text="@string/probability"/>
+
+            <TextView
+                style="@style/ResultText"
+                android:text="@string/timecost"/>
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv_probability"
+                style="@style/ResultText"
+                android:textColor="@android:color/black"
+                android:text="@string/empty"
+                tools:text="0.9"/>
+
+
+            <TextView
+                android:id="@+id/tv_timecost"
+                style="@style/ResultText"
+                android:textColor="@android:color/black"
+                android:text="@string/empty"
+                tools:text="10ms"/>
+
+        </TableRow>
+
+
 
 
     </TableLayout>

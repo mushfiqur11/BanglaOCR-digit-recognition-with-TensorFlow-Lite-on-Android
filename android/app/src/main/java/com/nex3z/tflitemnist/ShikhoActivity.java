@@ -27,6 +27,9 @@ public class ShikhoActivity extends AppCompatActivity {
 
 
     @BindView(R.id.tv_prediction) TextView mTvPrediction;
+    @BindView(R.id.tv_probability) TextView mTvProbability;
+    @BindView(R.id.tv_timecost) TextView mTvTimeCost;
+
 
 
     Button captureButton;
@@ -56,7 +59,7 @@ public class ShikhoActivity extends AppCompatActivity {
     }
 
 
-    
+
     void onDetectClick() {
         if (mClassifier == null) {
             Log.e(LOG_TAG, "onDetectClick(): Classifier is not initialized");
@@ -107,6 +110,10 @@ public class ShikhoActivity extends AppCompatActivity {
 
     private void renderResult(Result result) {
         mTvPrediction.setText(String.valueOf(result.getNumber()));
+        mTvProbability.setText(String.valueOf(result.getProbability()));
+        mTvTimeCost.setText(String.format(getString(R.string.timecost_value),
+                result.getTimeCost()));
+
 
 //        mTvTimeCost.setText(String.format(String.valueOf(Classifier.total)));
     }
