@@ -86,6 +86,7 @@ public class ShikhoActivity extends AppCompatActivity {
 
     void onCaptureClick()
     {
+        onClearClick();
         if (mClassifier == null) {
             Log.e(LOG_TAG, "onDetectClick(): Classifier is not initialized");
             return;}
