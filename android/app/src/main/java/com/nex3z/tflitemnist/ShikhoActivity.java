@@ -29,10 +29,11 @@ public class ShikhoActivity extends AppCompatActivity {
     @BindView(R.id.tv_prediction) TextView mTvPrediction;
     @BindView(R.id.tv_probability) TextView mTvProbability;
     @BindView(R.id.tv_timecost) TextView mTvTimeCost;
+    @BindView(R.id.fpv_paint) FingerPaintView mFpvPaint;
 
 
 
-    Button captureButton;
+    Button captureButton,btn_clear,btn_detect;
     private Classifier mClassifier;
     Bitmap captured_image;
 
@@ -46,6 +47,22 @@ public class ShikhoActivity extends AppCompatActivity {
         init();
 
         captureButton = findViewById(R.id.captureButton);
+        btn_clear = findViewById(R.id.btn_clear);
+        btn_detect = findViewById(R.id.btn_detect);
+
+        btn_detect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDetectClick();
+            }
+        });
+
+        btn_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClearClick();
+            }
+        });
 
         captureButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,9 +75,17 @@ public class ShikhoActivity extends AppCompatActivity {
 
     }
 
+    void onClearClick() {
+        mFpvPaint.clear();
+        mTvPrediction.setText(R.string.empty);
+        mTvProbability.setText(R.string.empty);
+        mTvTimeCost.setText(R.string.empty);
 
 
-    void onDetectClick() {
+    }
+
+    void onCaptureClick()
+    {
         if (mClassifier == null) {
             Log.e(LOG_TAG, "onDetectClick(): Classifier is not initialized");
             return;}
@@ -81,11 +106,38 @@ public class ShikhoActivity extends AppCompatActivity {
         renderResult(result);
     }
 
+
+
+    void onDetectClick() {
+        if (mClassifier == null) {
+            Log.e(LOG_TAG, "onDetectClick(): Classifier is not initialized");
+            return;}
+//        } else if (mFpvPaint.isEmpty()) {
+//            Toast.makeText(this, R.string.please_write_a_digit, Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+
+
+
+//        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.eight);
+//        Bitmap scaled = Bitmap.createScaledBitmap(b, 40, 40, true);
+
+                Bitmap image = mFpvPaint.exportToBitmap(
+                        Classifier.IMG_WIDTH, Classifier.IMG_HEIGHT);
+
+
+        //Bitmap captured_image_scaled = Bitmap.createScaledBitmap(captured_image, 40, 40, true);
+
+
+        Result result = mClassifier.classify(image);
+        renderResult(result);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         captured_image = (Bitmap) data.getExtras().get("data");
-        onDetectClick();
+        onCaptureClick();
 
     }
 
