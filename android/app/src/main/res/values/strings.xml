@@ -11,4 +11,5 @@
     <string name="shekhao">শেখাও</string>
     <string name="please_write_a_digit">Please write a digit in the box above.</string>
     <string name="failed_to_create_classifier">Failed to create classifier.</string>
+    <string name="capture">CAPTURE</string>
 </resources>

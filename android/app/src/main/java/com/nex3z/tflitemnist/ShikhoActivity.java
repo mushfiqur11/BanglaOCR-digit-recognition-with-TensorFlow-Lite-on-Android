@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +35,8 @@ public class ShikhoActivity extends AppCompatActivity {
 
 
 
-    Button captureButton,btn_clear,btn_detect;
+    Button btn_clear,btn_detect;
+    ImageView captureButton;
     private Classifier mClassifier;
     Bitmap captured_image;
 
