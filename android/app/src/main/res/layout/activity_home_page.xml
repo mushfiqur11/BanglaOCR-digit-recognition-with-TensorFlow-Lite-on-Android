@@ -4,28 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage">
+    tools:context=".HomePage"
+    android:background="#000000"
+    >
 
-    <Button
-        android:id="@+id/shikhoButton"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:text="@string/shikho"
-        android:textSize="35dp"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/logo"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="250dp"
         />
 
-    <Button
-        android:id="@+id/shekhaoButton"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:text="@string/shekhao"
-        android:textSize="35dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/shikhoButton"
+    <ImageView
+        android:id="@+id/shikhoButton"
+        android:layout_width="220dp"
+        android:layout_height="160dp"
+        android:layout_below="@+id/logo"
         android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/shikhao_image" />
+
+    <ImageView
+        android:id="@+id/shekhaoButton"
+        android:layout_width="220dp"
+        android:layout_height="160dp"
+
+        android:src="@drawable/shekhao_image"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/shikhoButton"
         />
 
 
