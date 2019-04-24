@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.nex3z.tflitemnist.ShekhaoActivity">
+    tools:context="com.nex3z.tflitemnist.ShekhaoActivity"
+    android:background="#000000"
+    >
 
     <TableLayout
         android:layout_width="match_parent"
@@ -16,7 +18,7 @@
             android:id="@+id/tv_prediction"
             style="@style/ResultText"
             android:textSize="45sp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/redText"
             android:text="@string/empty"
             tools:text="1"/>
 
@@ -29,7 +31,9 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:foreground="@drawable/shape_rect_border"/>
+        android:foreground="@drawable/shape_rect_border"
+        android:background="#fff"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,14 +46,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="SUBMIT"/>
+            android:text="SUBMIT"
+            android:background="@drawable/button_background"
+            />
 
         <Button
             android:id="@+id/btn_clear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/clear"/>
+            android:text="@string/clear"
+            android:background="@drawable/button_background"
+            />
 
     </LinearLayout>
 
