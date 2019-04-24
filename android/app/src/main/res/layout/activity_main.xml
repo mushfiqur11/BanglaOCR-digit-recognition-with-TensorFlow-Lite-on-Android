@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.nex3z.tflitemnist.ShikhoActivity">
+    tools:context="com.nex3z.tflitemnist.ShikhoActivity"
+    android:background="#000000"
+    >
 
     <TableLayout
         android:layout_width="match_parent"
@@ -13,28 +15,32 @@
 
         <TextView
             style="@style/ResultText"
-            android:text="@string/prediction"/>
+            android:text="@string/prediction"
+            android:textColor="@color/redText"
+            />
 
         <TextView
             android:id="@+id/tv_prediction"
             style="@style/ResultText"
             android:textSize="24sp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/redText"
             android:text="@string/empty"
             tools:text="1"/>
-
-
 
 
         <TableRow>
 
             <TextView
                 style="@style/ResultText"
-                android:text="@string/probability"/>
+                android:text="@string/probability"
+                android:textColor="@color/redText"
+                />
 
             <TextView
                 style="@style/ResultText"
-                android:text="@string/timecost"/>
+                android:text="@string/timecost"
+                android:textColor="@color/redText"
+                />
 
         </TableRow>
 
@@ -43,7 +49,7 @@
             <TextView
                 android:id="@+id/tv_probability"
                 style="@style/ResultText"
-                android:textColor="@android:color/black"
+                android:textColor="@color/redText"
                 android:text="@string/empty"
                 tools:text="0.9"/>
 
@@ -51,7 +57,7 @@
             <TextView
                 android:id="@+id/tv_timecost"
                 style="@style/ResultText"
-                android:textColor="@android:color/black"
+                android:textColor="@color/redText"
                 android:text="@string/empty"
                 tools:text="10ms"/>
 
@@ -68,6 +74,7 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
+        android:background="#fff"
         android:foreground="@drawable/shape_rect_border"/>
 
 
@@ -83,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/button_background"
             android:text="@string/detect"/>
 
         <Button
@@ -90,6 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/button_background"
             android:text="@string/clear"/>
 
 
@@ -101,6 +110,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="CAPTURE"
+        android:background="@drawable/button_background"
 
         />
 
