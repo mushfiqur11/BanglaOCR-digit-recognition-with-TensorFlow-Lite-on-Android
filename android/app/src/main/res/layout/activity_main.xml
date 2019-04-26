@@ -79,44 +79,75 @@
 
 
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_detect"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/button_background"
-            android:text="@string/detect"
-            android:layout_margin="10dp"/>
-
-        <Button
-            android:id="@+id/btn_clear"
+            android:padding="10dp"
+            style="@style/ResultText"
+            android:textColor="@color/redText"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/button_background"
-            android:text="@string/clear"
-            android:layout_margin="10dp"/>
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_detect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:text="@string/detect"
+                android:layout_margin="10dp"
+                android:textColor="#FFFFFF"/>
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:text="@string/clear"
+                android:layout_margin="10dp"
+                android:textColor="#FFFFFF"/>
 
 
 
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/captureButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="@string/capture"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="20dp"
+
+            android:src="@drawable/ic_camera_black_24dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CAPTURE"
+            android:textColor="@color/redText"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+
+            />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/captureButton"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:text="@string/capture"
-
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ic_camera_black_24dp"
-        />
 
 
 
