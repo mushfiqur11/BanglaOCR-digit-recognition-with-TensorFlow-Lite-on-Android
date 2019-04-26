@@ -165,7 +165,12 @@ public class ShikhoActivity extends AppCompatActivity {
     }
 
     private void renderResult(Result result) {
-        mTvPrediction.setText(String.valueOf(result.getNumber()));
+        if(result.getNumber() == -1){
+            mTvPrediction.setText(String.valueOf(result.alternate1())+" or "+String.valueOf(result.alternate2()));
+        }else {
+            mTvPrediction.setText(String.valueOf(result.getNumber()));
+
+        }
         mTvProbability.setText(String.valueOf(result.getProbability()));
         mTvTimeCost.setText(String.format(getString(R.string.timecost_value),
                 result.getTimeCost()));
