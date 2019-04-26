@@ -19,7 +19,9 @@ import java.util.Arrays;
 public class Classifier {
     private static final String LOG_TAG = Classifier.class.getSimpleName();
 
-    private static final String MODEL_NAME = "mnistbangla2.tflite";
+//    private static final String MODEL_NAME = "mnistbangla2.tflite";
+
+    private static String MODEL_NAME = "mnistbangla2.tflite";
 
     private static final int BATCH_SIZE = 1;
     public static final int IMG_HEIGHT = 40;
@@ -34,7 +36,8 @@ public class Classifier {
     private final int[] mImagePixels = new int[IMG_HEIGHT * IMG_WIDTH];
     private final float[][] mResult = new float[1][NUM_CLASSES];
 
-    public Classifier(Activity activity) throws IOException {
+    public Classifier(Activity activity,String MODEL_NAMES) throws IOException {
+        MODEL_NAME = MODEL_NAMES;
         mInterpreter = new Interpreter(loadModelFile(activity), options);
         mImageData = ByteBuffer.allocateDirect(
                 4 * BATCH_SIZE * IMG_HEIGHT * IMG_WIDTH * NUM_CHANNEL);

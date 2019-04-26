@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -32,12 +33,13 @@ public class ShikhoActivity extends AppCompatActivity {
     @BindView(R.id.tv_probability) TextView mTvProbability;
     @BindView(R.id.tv_timecost) TextView mTvTimeCost;
     @BindView(R.id.fpv_paint) FingerPaintView mFpvPaint;
-
+    @BindView(R.id.result)TextView mTvResult;
 
 
     Button btn_clear,btn_detect;
     ImageView captureButton;
     private Classifier mClassifier;
+    private Classifier mClassifier2;
     Bitmap captured_image;
 
 
@@ -113,7 +115,7 @@ public class ShikhoActivity extends AppCompatActivity {
 
 
     void onDetectClick() {
-        if (mClassifier == null) {
+        if (mClassifier2 == null) {
             Log.e(LOG_TAG, "onDetectClick(): Classifier is not initialized");
             return;}
 //        } else if (mFpvPaint.isEmpty()) {
@@ -133,7 +135,7 @@ public class ShikhoActivity extends AppCompatActivity {
         //Bitmap captured_image_scaled = Bitmap.createScaledBitmap(captured_image, 40, 40, true);
 
 
-        Result result = mClassifier.classify(image);
+        Result result = mClassifier2.classify(image);
         renderResult(result);
     }
 
@@ -153,7 +155,8 @@ public class ShikhoActivity extends AppCompatActivity {
         try {
 
             //mClassifier = new Interpreter(loadModelFile(ShikhoActivity.this,modelFile));
-            mClassifier = new Classifier(this);
+            mClassifier = new Classifier(this,"mnistbangla.tflite");
+            mClassifier2 = new Classifier(this,"mnistbangla2.tflite");
         } catch (IOException e) {
             Toast.makeText(this, R.string.failed_to_create_classifier, Toast.LENGTH_LONG).show();
             Log.e(LOG_TAG, "init(): Failed to create Classifier", e);
@@ -169,7 +172,13 @@ public class ShikhoActivity extends AppCompatActivity {
         mTvProbability.setText(String.valueOf(result.getProbability()));
         mTvTimeCost.setText(String.format(getString(R.string.timecost_value),
                 result.getTimeCost()));
-
+        if(result.getProbability()>.4) {
+            mTvResult.setVisibility(View.INVISIBLE);
+        }
+        else{
+            mTvResult.setVisibility(View.VISIBLE);
+            mTvResult.setText(R.string.fail_to_detect);
+        }
 
 //        mTvTimeCost.setText(String.format(String.valueOf(Classifier.total)));
     }
