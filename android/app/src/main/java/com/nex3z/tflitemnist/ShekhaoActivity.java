@@ -2,14 +2,11 @@ package com.nex3z.tflitemnist;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,7 +20,6 @@ import com.google.firebase.storage.UploadTask;
 import com.nex3z.fingerpaintview.FingerPaintView;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.Random;
 
 import butterknife.BindView;

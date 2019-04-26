@@ -3,6 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+<<<<<<< HEAD
     <color name="redText">#685F60</color>
 
+=======
+    <color name="redText">#6C181E</color>
+>>>>>>> bbf8263052447cb0cc6952171a1c172279efa453
 </resources>
