@@ -47,14 +47,9 @@ public class Result {
     public int getNumber() {
         return mNumber;
     }
-    public int alternate1(){
-        return mNumber1;
-    }
-    public int alternate2(){
-        return mNumber2;
-    }
-    public int alternate3(){
-        return mNumber3;
+
+    public int getFlag(){
+        return flag;
     }
 
     public float getProbability() {

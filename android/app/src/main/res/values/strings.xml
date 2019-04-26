@@ -13,5 +13,5 @@
     <string name="failed_to_create_classifier">Failed to create classifier.</string>
     <string name="capture">CAPTURE</string>
     <string name="fail_to_detect">Failed to detect</string>
-
+    <string name="not_sure">Not sure</string>
 </resources>

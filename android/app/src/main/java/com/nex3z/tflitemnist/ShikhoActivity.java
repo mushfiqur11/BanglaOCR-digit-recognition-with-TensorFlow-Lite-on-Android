@@ -170,8 +170,12 @@ public class ShikhoActivity extends AppCompatActivity {
         mTvProbability.setText(String.valueOf(result.getProbability()));
         mTvTimeCost.setText(String.format(getString(R.string.timecost_value),
                 result.getTimeCost()));
-        if(result.getNumber()!=-1) {
+        if(result.getFlag()==0) {
             mTvResult.setVisibility(View.INVISIBLE);
+        }
+        else if(result.getFlag()<4){
+            mTvResult.setVisibility(View.VISIBLE);
+            mTvResult.setText(R.string.not_sure);
         }
         else{
             mTvResult.setVisibility(View.VISIBLE);
