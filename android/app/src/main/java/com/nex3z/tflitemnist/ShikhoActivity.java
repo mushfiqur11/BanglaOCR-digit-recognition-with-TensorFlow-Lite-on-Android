@@ -2,6 +2,7 @@ package com.nex3z.tflitemnist;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -35,7 +36,9 @@ public class ShikhoActivity extends AppCompatActivity {
     @BindView(R.id.fpv_paint) FingerPaintView mFpvPaint;
     @BindView(R.id.result)TextView mTvResult;
 
-
+    @BindView(R.id.result1)TextView mTvResult1;
+    @BindView(R.id.result2)TextView mTvResult2;
+    @BindView(R.id.result3)TextView mTvResult3;
     Button btn_clear,btn_detect;
     ImageView captureButton;
     private Classifier mClassifier;
@@ -53,7 +56,10 @@ public class ShikhoActivity extends AppCompatActivity {
         captureButton = findViewById(R.id.captureButton);
         btn_clear = findViewById(R.id.btn_clear);
         btn_detect = findViewById(R.id.btn_detect);
-
+        mTvPrediction.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/bangla_font.ttf"));
+        mTvResult1.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/bangla_font.ttf"));
+        mTvResult2.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/bangla_font.ttf"));
+        mTvResult3.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/bangla_font.ttf"));
         btn_detect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +90,10 @@ public class ShikhoActivity extends AppCompatActivity {
         mTvPrediction.setText(R.string.empty);
         mTvProbability.setText(R.string.empty);
         mTvTimeCost.setText(R.string.empty);
-
+        mTvResult.setVisibility(View.INVISIBLE);
+        mTvResult1.setVisibility(View.INVISIBLE);
+        mTvResult2.setVisibility(View.INVISIBLE);
+        mTvResult3.setVisibility(View.INVISIBLE);
 
     }
 
@@ -172,16 +181,27 @@ public class ShikhoActivity extends AppCompatActivity {
                 result.getTimeCost()));
         if(result.getFlag()==0) {
             mTvResult.setVisibility(View.INVISIBLE);
+            mTvResult1.setVisibility(View.INVISIBLE);
+            mTvResult2.setVisibility(View.INVISIBLE);
+            mTvResult3.setVisibility(View.INVISIBLE);
         }
         else if(result.getFlag()<4){
             mTvResult.setVisibility(View.VISIBLE);
+            mTvResult1.setVisibility(View.VISIBLE);
+            mTvResult2.setVisibility(View.VISIBLE);
+            mTvResult3.setVisibility(View.VISIBLE);
             mTvResult.setText(R.string.not_sure);
         }
         else{
             mTvResult.setVisibility(View.VISIBLE);
+            mTvResult1.setVisibility(View.VISIBLE);
+            mTvResult2.setVisibility(View.VISIBLE);
+            mTvResult3.setVisibility(View.VISIBLE);
             mTvResult.setText(R.string.fail_to_detect);
         }
-
+        mTvResult1.setText(String.valueOf(result.getmNumber1()));
+        mTvResult2.setText(String.valueOf(result.getmNumber2()));
+        mTvResult3.setText(String.valueOf(result.getmNumber3()));
 //        mTvTimeCost.setText(String.format(String.valueOf(Classifier.total)));
     }
 

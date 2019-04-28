@@ -3,6 +3,7 @@ package com.nex3z.tflitemnist;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -35,8 +36,8 @@ public class ShekhaoActivity extends AppCompatActivity {
 
     @BindView(R.id.fpv_paint)
     FingerPaintView mFpvPaint;
-    @BindView(R.id.tv_prediction)
-    TextView tv_prediction;
+    @BindView(R.id.tv_prediction2)
+    TextView tv_prediction2;
 
     int randomNumber;
 
@@ -59,7 +60,8 @@ public class ShekhaoActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
 
-        tv_prediction.setText(randomNumberString);
+        tv_prediction2.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/bangla_font.ttf"));
+        tv_prediction2.setText(randomNumberString);
 
         btn_clear = findViewById(R.id.btn_clear);
         btn_submit = findViewById(R.id.btn_detect);

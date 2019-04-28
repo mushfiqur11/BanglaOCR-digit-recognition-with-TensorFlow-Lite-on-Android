@@ -15,9 +15,9 @@
 
 
         <TextView
-            android:id="@+id/tv_prediction"
+            android:id="@+id/tv_prediction2"
             style="@style/ResultText"
-            android:textSize="45sp"
+            android:textSize="65sp"
             android:textColor="@color/redText"
             android:text="@string/empty"
             tools:text="1"/>

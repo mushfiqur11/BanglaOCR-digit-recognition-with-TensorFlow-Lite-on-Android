@@ -59,6 +59,16 @@ public class Result {
             return 0;
     }
 
+    public int getmNumber1() {
+        return mNumber1;
+    }
+    public int getmNumber2() {
+        return mNumber2;
+    }
+    public int getmNumber3() {
+        return mNumber3;
+    }
+
     public long getTimeCost() {
         return mTimeCost;
     }
