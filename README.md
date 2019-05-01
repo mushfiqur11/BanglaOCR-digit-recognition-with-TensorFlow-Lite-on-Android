@@ -3,22 +3,22 @@
 This project was built as a lab task for the software development corse (CSE 4510) in IUT (Islamic University of Technology). The project uses [TensorFlow Lite](https://www.tensorflow.org/lite) on Android for Bangla handwritten digits classification.
 Download the apk of the app from the [drive link](https://drive.google.com/open?id=17fkdUrzHzOzHqe6fHyGHx39Nl3GFUVoG). 
 A detailed report on the app is available [here](https://drive.google.com/open?id=1P7wIzQh38fIubXCW74GiRJSmGIBxPwI8).
-<!--
+
     <div align="center">
-      <img src="image/demo.gif" heigit="500"/>
+      <img src="image/layouts.gif" heigit="500"/>
     </div>
-!-->
+
 Bangladesh is lagging behind in machine learning. A good OCR software for Bengali text recognition is really hard to find. In this project our goal is to create a system that can lead to an excellent OCR software for Bengali text recognition.
 To start the system, our plan was to create OCR for Bengali digits only. The android application also has scopes for further development. The application can collect data from the user to create new datasets.
 
 
 ### Contributors
 - Md. Mushfiqur Rahman (160041011)[Gitlab](https://gitlab.com/mushfiqur11)
-- - Machine Learning Implementation
+    - Machine Learning Implementation
 - Kazi Raiyan Mahmud (160041058)[Gitlab](https://gitlab.com/kazzi58)
-- - Android Development
+    - Android Development
 - Minhajul Islam (160041061)[Gitlab](https://gitlab.com/Minhaj91)
-- - Data Collection and U/I design
+    - Data Collection and U/I design
 
 ### Environment
 - OpenCV for data manipulation
