@@ -5,7 +5,7 @@ Download the apk of the app from the [drive link](https://drive.google.com/open?
 A detailed report on the app is available [here](https://drive.google.com/open?id=1P7wIzQh38fIubXCW74GiRJSmGIBxPwI8).
 
 <div align="center">
-    <img src="image/layouts.gif" heigit="500"/>
+    <img src="image/layouts.gif" heigit="100"/>
 </div>
 
 Bangladesh is lagging behind in machine learning. A good OCR software for Bengali text recognition is really hard to find. In this project our goal is to create a system that can lead to an excellent OCR software for Bengali text recognition.
