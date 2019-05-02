@@ -10,7 +10,7 @@ A detailed report on the app is available [here](https://drive.google.com/open?i
 
 Bangladesh is lagging behind in machine learning. A good OCR software for Bengali text recognition is really hard to find. In this project our goal is to create a system that can lead to an excellent OCR software for Bengali text recognition.
 To start the system, our plan was to create OCR for Bengali digits only. The android application also has scopes for further development. The application can collect data from the user to create new datasets.
-
+The project root directory has the dataset finalModelX and the corresponding labels finalModelY. MyModel2.ipynb is one of the neural network models used in the application.
 
 ### Contributors
 - Md. Mushfiqur Rahman (160041011)[Gitlab](https://gitlab.com/mushfiqur11)
