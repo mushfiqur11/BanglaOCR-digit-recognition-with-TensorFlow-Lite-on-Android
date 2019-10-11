@@ -32,6 +32,6 @@ The project root directory has the dataset finalModelX and the corresponding lab
 - The official TensorFlow Lite [examples](https://github.com/tensorflow/examples/tree/master/lite/examples).
 - The [FingerPaint](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/graphics/FingerPaint.java) from Android API demo.
 
-<div align="center">
-    <img src="https://www.google.com/search?q=playstore+logo&safe=off&client=ubuntu&hs=3Wp&channel=fs&sxsrf=ACYBGNT-8aL3N__ve6CKV2salnjgJLgeFg:1570767260579&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj5s92ErJPlAhWbTX0KHVM0Ay4Q_AUIESgB&biw=1920&bih=951#imgrc=Z6-CI0RGXiH-6M:" alt="Application demo" height="400"/>
+<div align="left">
+    <img src="image/playstore.jpg" alt="Playstore Link" height="30"/>
 </div>
