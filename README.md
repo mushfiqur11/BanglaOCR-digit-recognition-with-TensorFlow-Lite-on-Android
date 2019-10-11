@@ -1,7 +1,7 @@
 # BanglaOCR(digit recognition) with TensorFlow Lite on Android
 
 This project was built as a lab task for the software development corse (CSE 4510) in IUT (Islamic University of Technology). The project uses [TensorFlow Lite](https://www.tensorflow.org/lite) on Android for Bangla handwritten digits classification.
-Download the apk of the app from the [drive link](https://drive.google.com/open?id=17fkdUrzHzOzHqe6fHyGHx39Nl3GFUVoG). 
+Download the apk of the app from the [google playstore](https://play.google.com/store/apps/details?id=com.orangekid.banglaocr). 
 A detailed report on the app is available [here](https://drive.google.com/open?id=1P7wIzQh38fIubXCW74GiRJSmGIBxPwI8).
 
 <div align="center">
@@ -31,3 +31,7 @@ The project root directory has the dataset finalModelX and the corresponding lab
 - The basic model architecture comes from [tensorflow-mnist-tutorial](https://github.com/GoogleCloudPlatform/tensorflow-without-a-phd/tree/master/tensorflow-mnist-tutorial).
 - The official TensorFlow Lite [examples](https://github.com/tensorflow/examples/tree/master/lite/examples).
 - The [FingerPaint](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/graphics/FingerPaint.java) from Android API demo.
+
+<div align="center">
+    <img src="https://www.google.com/search?q=playstore+logo&safe=off&client=ubuntu&hs=3Wp&channel=fs&sxsrf=ACYBGNT-8aL3N__ve6CKV2salnjgJLgeFg:1570767260579&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj5s92ErJPlAhWbTX0KHVM0Ay4Q_AUIESgB&biw=1920&bih=951#imgrc=Z6-CI0RGXiH-6M:" alt="Application demo" height="400"/>
+</div>
