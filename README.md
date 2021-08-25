@@ -1,4 +1,4 @@
-# BanglaOCR(digit recognition) with TensorFlow Lite on Android
+# Bangla digit recognition with TensorFlow Lite on Android
 
 This project was built as a lab task for the software development course (CSE 4510) in IUT (Islamic University of Technology). The project uses [TensorFlow Lite](https://www.tensorflow.org/lite) on Android for Bangla handwritten digits classification.
 Download the apk of the app from the [google playstore](https://play.google.com/store/apps/details?id=com.orangekid.banglaocr). 
